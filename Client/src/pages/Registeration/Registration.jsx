@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import registration_image from "../../assets/images/registration-image.jpg";
+import registration_image from "../../assets/images/registration-image.webp";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
