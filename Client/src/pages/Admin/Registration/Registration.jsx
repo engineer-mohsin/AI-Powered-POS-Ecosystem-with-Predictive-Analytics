@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import registration_image from "../../assets/images/registration-image.webp";
+import registration_image from "../../../assets/images/registration-image.webp";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center p-1">
-      <div className="flex w-full max-w-4xl h-[500px] border border-gray-200 rounded-lg overflow-hidden">
+      <div className="flex w-full max-w-4xl h-[500px] border border-gray-200 rounded-lg overflow-hidden select-none">
         
         {/* Left Side - Form */}
         <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-6">

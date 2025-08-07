@@ -58,7 +58,7 @@ const VerifyCode = () => {
   };
 
   return (
-    <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center">
+    <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center select-none">
       <Helmet>
         <title>Verify Code | Zubi Electronics</title>
       </Helmet>

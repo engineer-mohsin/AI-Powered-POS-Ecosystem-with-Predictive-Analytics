@@ -59,7 +59,7 @@ const SignIn = () => {
       {/* 🔔 Toast Notifications */}
       <ToastContainer position="top-center" autoClose={3000} />
 
-      <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center">
+      <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center select-none">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}

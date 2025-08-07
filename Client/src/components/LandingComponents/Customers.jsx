@@ -1,23 +1,24 @@
 // components/Customers.jsx
 import Section from "./Section";
-
+import client_1 from "../../assets/clients/engr-mohsin.png"
 const Customers = () => {
   const customerList = [
     {
-      name: "Ali Khan",
-      image: "/customers/ali.png",
+      name: "Engr. Mohsin",
+      image: client_1,
       review: "This POS system revolutionized my grocery store's billing. Simple and powerful!",
     },
     {
-      name: "Fatima Noor",
-      image: "/customers/fatima.png",
-      review: "Excellent support and smooth experience. Highly recommended for any retail setup.",
+      name: "Engr. Mohsin",
+      image: client_1,
+      review: "This POS system revolutionized my grocery store's billing. Simple and powerful!",
     },
     {
-      name: "Ahmed Raza",
-      image: "/customers/ahmed.png",
-      review: "The AI integration is truly helpful. Fast, reliable, and easy to train staff on.",
+      name: "Engr. Mohsin",
+      image: client_1,
+      review: "This POS system revolutionized my grocery store's billing. Simple and powerful!",
     },
+    
   ];
 
   return (
@@ -26,7 +27,7 @@ const Customers = () => {
       content={
         <>
           <div className="text-lg lg:text-xl text-white/80 mb-6">
-            Over 10,000 satisfied businesses across Pakistan use our smart POS systems.
+            Over 3,000+ satisfied businesses across Pakistan use our smart POS systems.
           </div>
 
           <div className="flex justify-center">
