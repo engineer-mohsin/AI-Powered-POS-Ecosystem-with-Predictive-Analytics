@@ -1,5 +1,5 @@
 import React from "react";
-import StatCard from "../../../components/Dashboard/StatCard"; // Adjust path as needed
+import StatCard from "../../../../components/Dashboard/StatCard"; // Adjust path as needed
 import { DollarSign, Users, ShoppingCart, BarChart } from "lucide-react";
 
 const ManagerDashboard = () => {

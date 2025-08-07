@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import signinImage from "../../assets/images/signin-image.webp";
+import signinImage from "../../../assets/images/signin-image.webp";
 
 // Animation variant
 const fadeIn = {
@@ -46,7 +46,7 @@ const SignIn = () => {
     toast.success("Sign In successful!");
 
     setTimeout(() => {
-      navigate("/dashboard");
+      navigate("/user-dashboard");
     }, 1500);
   };
 
@@ -151,8 +151,7 @@ const SignIn = () => {
                   {/* Submit */}
                   <motion.div
                     className="flex flex-col gap-3"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                    
                   >
                     <button
                       type="submit"
@@ -165,7 +164,7 @@ const SignIn = () => {
                   <p className="text-sm text-center text-gray-600 mt-4">
                     Don’t have an account?{" "}
                     <Link
-                      to="/"
+                      to="/contact-owner"
                       className="text-[#6d28d9] underline font-medium hover:cursor-pointer"
                     >
                       Contact Admin

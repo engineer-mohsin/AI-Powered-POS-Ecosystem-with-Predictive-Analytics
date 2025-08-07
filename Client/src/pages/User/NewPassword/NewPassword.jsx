@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import newPassImage from "../../assets/images/new-password-image.webp";
+import newPassImage from "../../../assets/images/new-password-image.webp";
 
 // Animation variant for fade-in
 const fadeIn = {
@@ -19,34 +20,30 @@ const fadeIn = {
 const NewPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  // 🔒 Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 🔴 Validation: Empty fields
     if (!password.trim() || !confirmPassword.trim()) {
       toast.error("Please fill in all the fields.");
       return;
     }
 
-    // 🔴 Validation: Min length
     if (password.length < 8 || confirmPassword.length < 8) {
       toast.error("Password must be at least 8 characters long.");
       return;
     }
 
-    // ❌ Validation: Mismatch
     if (password !== confirmPassword) {
       toast.error("Passwords do not match.");
       return;
     }
 
-    // ✅ Simulate password reset success
     setSubmitting(true);
-    // Simulate success
     toast.success("Password changed successfully!");
     setTimeout(() => {
       navigate("/sign-in");
@@ -55,12 +52,10 @@ const NewPassword = () => {
 
   return (
     <div className="min-w-screen min-h-screen bg-[#f5f5f5] flex justify-center items-center">
-      {/* Page Title */}
       <Helmet>
         <title>New Password | Zubi Electronics</title>
       </Helmet>
 
-      {/* Container Card */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -85,41 +80,63 @@ const NewPassword = () => {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* 🔐 New Password Field */}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 relative">
                   <label
                     htmlFor="password"
                     className="text-sm font-medium text-gray-700"
                   >
                     New Password
                   </label>
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter new password"
-                    required
-                    className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#6d28d9] outline-none"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter new password"
+                      required
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#6d28d9] outline-none pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500"
+                    >
+                      {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+                    </button>
+                  </div>
                 </div>
 
                 {/* 🔐 Confirm Password Field */}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 relative">
                   <label
                     htmlFor="confirmPassword"
                     className="text-sm font-medium text-gray-700"
                   >
                     Confirm Password
                   </label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Re-enter new password"
-                    required
-                    className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#6d28d9] outline-none"
-                  />
+                  <div className="relative">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      id="confirmPassword"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      placeholder="Re-enter new password"
+                      required
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#6d28d9] outline-none pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500"
+                    >
+                      {showConfirmPassword ? (
+                        <FaEyeSlash size={18} />
+                      ) : (
+                        <FaEye size={18} />
+                      )}
+                    </button>
+                  </div>
                 </div>
 
                 {/* Submit Button */}

@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import signinImage from "../../assets/images/reset-password-image.webp";
+import resetpasswordimage from "../../../assets/images/reset-password-image.webp";
 
 // Animation Variants
 const fadeIn = {
@@ -121,7 +121,7 @@ const ResetPassword = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <img
-            src={signinImage}
+            src={resetpasswordimage}
             alt="Reset Password"
             className="w-full h-full object-cover"
             loading="lazy"
